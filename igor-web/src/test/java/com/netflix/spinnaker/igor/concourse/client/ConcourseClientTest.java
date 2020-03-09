@@ -25,6 +25,8 @@ class ConcourseClientTest {
   @Test
   void connectException() {
     ConcourseClient client = new ConcourseClient("http://does.not.exist", "test", "test");
+    System.out.println("*** client=" + client);
+    System.out.println("*** client.getJobService(): " + client.getJobService());
     assertThatThrownBy(() -> client.getJobService().jobs())
         .hasRootCauseInstanceOf(UnknownHostException.class);
   }
